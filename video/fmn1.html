@@ -9,33 +9,24 @@
 <a href="/#"><h1>FMNworld<h1>
 </a>
 
+<video id="video" width="350" controls="controls"></video>
 <center>
-
-    
-
-<figure>
-  <figcaption>测试视频</figcaption>
-  <div class="player">
-    <video id="video" controls="" autoplay="" name="fmnworld-video" width="500" height="250" >>
-      <source src="http://fmn.video.sb.net.fmnworld.top/video/watch/fmn/id/1/bW7ni5flpKrlvLHniIbkuoY.mp4" type="video/mp4">
-    <video>
-    <!-- 控制台 -->
-    <section class="control">
-      <!-- 播放/暂停 -->
-      <a href="javascript:;" class="btn fa fa-play"></a>
-      <!-- 进度条 -->
-      <div class="progress" width="502">
-        <div class="line"></div>
-      </div>
-      <!-- 时间 -->
-      <div class="timer">
-        <span class="current">00:00:00</span> / 
-        <span class="total">00:00:00</span>
-      </div>
-      <!-- 音量 -->
-      <a href="javascript:;" class="btn volume fa fa-volume-up"></a>
-      <!-- 全屏 -->
-      <a href="javascript:;" class="btn fa fa-expand"></a>
-    </section>
-  </div>
-</figure>
+<script type="text/javascript">
+        //创建XMLHttpRequest对象
+        var xhr = new XMLHttpRequest();
+        //配置请求方式、请求地址以及是否同步
+        xhr.open('POST', 'http://fmn.video.sb.net.fmnworld.top/video/watch/fmn/id/1/blob.php /', true);
+        //设置请求结果类型为blob
+        xhr.responseType = 'blob';
+        //请求成功回调函数
+        xhr.onload = function(e) {
+            if (this.status == 200) {//请求成功
+                //获取blob对象
+                var blob = this.response;
+                //获取blob对象地址，并把值赋给容器
+                document.getElementById("video").src = URL.createObjectURL(blob);
+            }
+        };
+        xhr.send();
+    </script>
+ <center>
