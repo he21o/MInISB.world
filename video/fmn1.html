@@ -12,22 +12,5 @@
 <h3 id=fmnt>测试视频>
 <center>
 <video id="video" width="350" controls="controls"></video>
-<script type="text/javascript">
-        //创建XMLHttpRequest对象
-        var xhr = new XMLHttpRequest();
-        //配置请求方式、请求地址以及是否同步
-        xhr.open('POST', 'http://fmn.video.sb.net.fmnworld.top/video/watch/fmn/id/1/blob.php', true);
-        //设置请求结果类型为blob
-        xhr.responseType = 'blob';
-        //请求成功回调函数
-        xhr.onload = function(e) {
-            if (this.status == 200) {//请求成功
-                //获取blob对象
-                var blob = this.response;
-                //获取blob对象地址，并把值赋给容器
-                document.getElementById("video").src = URL.createObjectURL(blob);
-            }
-        };
-        xhr.send();
-    </script>
- <center>
+ <source src="http:// fmn.video.sb.net.fmnworld.top/video/watch/fmn/id/1/bW7ni5flpKrlvLHniIbkuoY.mp4" type="video/mp4" />
+<center>
