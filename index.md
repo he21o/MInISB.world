@@ -1,4 +1,4 @@
-<p class=fmn-hi>反迷你世界的平台！<p/>
+<p class= "fmn-hi" >反迷你世界的平台！<p/>
 
 ---
 
