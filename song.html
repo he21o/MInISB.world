@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>简易音乐播放器</title>
+		<script src="vue.js"></script><!-- 导包 -->
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				min-width: 800px;
+			}
+			.box{
+				margin: 0 auto;
+				width: 800px;
+				border: 1px solid black;	
+			}
+			.head{
+				height: 150px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-bottom: 1px solid black;
+			}
+			.a1{
+				height: calc(100vh - 153px);
+				display: flex;
+				flex-flow: column;
+				align-items: center;
+				overflow: auto;
+			}
+			.a1 li{
+				width: 600px;
+				height: 50px;
+				list-style: none;
+				border-radius: 20px;
+				border: #000000 solid 1px;
+				margin: 20px;
+				padding: 10px;
+			}
+			.a1 li.active{
+				background-color: #0088BB;
+			}
+			.b1{
+				border-radius: 50%;
+				margin:20px 50px 20px 50px ;
+				padding: 0;
+				width: 50px;
+				height: 50px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div id="a2">
+			<div class="box">
+				<div class="head">
+					<audio :src="getcurrentmusic"  autoplay="autoplay" controls="controls" v-on:ended="next()"></audio>
+					<button class="b1" @click="last">上一首</button>
+					<button class="b1" @click="next">下一首</button>
+				</div>
+				<ul class="a1">
+					<li  :class="{active:index===currentidnex}" v-for='(item,index) in musicdata' :key='item.id' v-on:click="huan(index)" > 
+					<h2>id:{{item.id}}——作者:{{item.admin}}——歌名:{{item.musicname}}</h2>	
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script>
+			const musicdata =[{
+				id:1,
+				admin:'阿肆',
+				musicname:'热爱105°C的你' ,
+				musrc:'http://boheyezi.cn/view.php/f60029bf01829bb58c635f4581eff52b.mp3'
+			},
+			{
+				id:2,
+				admin:'周杰伦',
+				musicname:'晴天' ,
+				musrc:'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-7184a2f2-3b0b-407a-adc8-4d450f35c1e7/a4f15326-a023-4e59-b92b-c0d91fea29cd.mp3'
+			},
+			{
+				id:3,
+				admin:'周杰伦',
+				musicname:'告白气球' ,
+				musrc:'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-7184a2f2-3b0b-407a-adc8-4d450f35c1e7/b678f1e2-349d-4aed-9a2d-fceea624ee07.mp3'
+			},
+		
+			]
+			
+			new Vue({
+				el:'#a2',
+				data:{
+					musicdata,
+					currentidnex:0,
+					url:''
+				},
+				computed:{
+					getcurrentmusic(){
+						return musicdata[this.currentidnex].musrc;
+					}
+				},
+				methods:{
+					huan(index){
+						this.currentidnex=index;
+					},
+					next(){
+						this.currentidnex++;
+						if(this.currentidnex==this.musicdata.length){
+							this.currentidnex=0;
+						}
+						console.log(this.currentidnex);
+					},
+					last(){
+						this.currentidnex--;
+						if(this.currentidnex<0){
+							this.currentidnex=this.musicdata.length-1;
+						}
+						console.log(this.currentidnex);
+					},
+				},
+			})
+		</script>
+	</body>
+</html>
+
