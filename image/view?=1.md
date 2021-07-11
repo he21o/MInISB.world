@@ -5,7 +5,12 @@
 笑死我了：
 
 <div>
-    <img class="dialog" src="https://user-images.githubusercontent.com/75876178/125181810-1e0c4300-e23b-11eb-9261-d2a0d310e286.png" width="100%">
+    <img class="dialog" src="https://user-images.githubusercontent.com/75876178/125181816-2795ab00-e23b-11eb-853f-3401729d736e.jpg" width="100%">
+    <div id="dialog_large_image"></div>
+</div>
+
+<div>
+    <img class="dialog" src="https://user-images.githubusercontent.com/75876178/125181820-2a909b80-e23b-11eb-94d6-248beca511db.png" width="100%">
     <div id="dialog_large_image"></div>
 </div>
 
